@@ -3,6 +3,12 @@
 <% @lists.each do |list| %>
 
   <p>タイトル</p>
-  <span><%= list.title %></span>
   
+  <%# <span><%= list.title ></span> %>
+
+  <%# <%= link_to 表示させるテキスト , リンク先URL [,オプション] %>
+  <span>
+  <%# link_to list.title, "/lists/#{list.id}" %>
+  <%= link_to list.title, list_path(list.id) %>
+  </span>
 <% end %> 
