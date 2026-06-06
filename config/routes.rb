@@ -1,29 +1,31 @@
 Rails.application.routes.draw do
-  get "lists/new"
-  get "/top" => "homes#top"
+  resources :lists
+  # get "lists/new"
+  # get "/top" => "homes#top"
 
-  get "lists" => "lists#index"
-  # get "lists/:id" => "lists#show"
-  # .../lists/1 や .../lists/3 に該当する
-  get 'lists/:id' => 'lists#show', as: 'list'
+  # get "lists" => "lists#index"
+  # # get "lists/:id" => "lists#show"
+  # # .../lists/1 や .../lists/3 に該当する
+  # get 'lists/:id' => 'lists#show', as: 'list'
 
-  # editアクションルーティング
-  get 'lists/:id/edit' => 'lists#edit', as: 'edit_list'
-  patch "lists/:id" => "lists#update",as: "update_list"
+  # # editアクションルーティング
+  # get 'lists/:id/edit' => 'lists#edit', as: 'edit_list'
+  # patch "lists/:id" => "lists#update",as: "update_list"
 
-  post 'lists' => "lists#create"
+  # delete 'lists/:id' => 'lists#destroy', as: 'destroy_list'
+  # post 'lists' => "lists#create"
   
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
+  # # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # # Defines the root path route ("/")
+  # # root "posts#index"
 end
