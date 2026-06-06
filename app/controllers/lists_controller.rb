@@ -18,10 +18,12 @@ class ListsController < ApplicationController
 
   #新規作成
   def create
-    list = List.new(list_params)
-    list.save
-    #redirect_to '/top'
-    redirect_to list_path(list.id)
+    @list = List.new(list_params)
+    if @list.save  #データ入力チェック
+      redirect_to list_path(@list.id)
+    else
+      render :new, status: :unprocessable_entity #新規投稿ページ再表示
+    end
   end
 
 
