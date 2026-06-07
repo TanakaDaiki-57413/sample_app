@@ -21,8 +21,10 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save  #データ入力チェック
+      flash[:notice] = "投稿に成功しました"
       redirect_to list_path(@list.id)
     else #エラー処理
+      flash.now[:alert] = "投稿に失敗しました"
       render :new, status: :unprocessable_entity #新規投稿ページ再表示
       # エラー詳細内容は表示しない場合の書きかた
       # redirect_to new_list_path
