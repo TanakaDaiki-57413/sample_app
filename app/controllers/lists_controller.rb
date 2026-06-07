@@ -21,8 +21,10 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     if @list.save  #データ入力チェック
       redirect_to list_path(@list.id)
-    else
+    else #エラー処理
       render :new, status: :unprocessable_entity #新規投稿ページ再表示
+      # エラー詳細内容は表示しない場合の書きかた
+      # redirect_to new_list_path
     end
   end
 
