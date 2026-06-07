@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :lists
   # get "lists/new"
-  # get "/top" => "homes#top"
+  get "/top" => "homes#top"
 
   # get "lists" => "lists#index"
   # # get "lists/:id" => "lists#show"
